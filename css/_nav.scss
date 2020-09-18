@@ -1,0 +1,113 @@
+nav {
+  height: 3rem;
+  background-color: $accent-color;
+  width: 100vw;
+  position: relative;
+  & .nav__links {
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    margin: 4rem auto;
+    background-color: $primary-color;
+    height: 40vh;
+    opacity: 0;
+    transform: translateY(-150%);
+    box-shadow: 9px 20px 20px 2px rgba(0, 0, 0, 0.5);
+
+    @include desktop {
+      transform: translateY(0);
+      display: flex;
+      margin: 0;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      height: 3rem;
+      box-shadow: none;
+      background-color: transparent;
+
+      opacity: 1;
+    }
+    &.open {
+      display: block;
+      opacity: 1;
+      transform: translateY(0);
+      @include all;
+    }
+    & li {
+      list-style: none;
+      padding: 0.2rem 0;
+      & a {
+        display: block;
+        padding: 1rem;
+        font-weight: 500;
+        width: 100%;
+        text-decoration: none;
+        color: $text-color;
+        text-transform: uppercase;
+        &:hover {
+          background-color: darken($primary-color, 2%);
+          color: $secondary-color;
+        }
+        @include desktop {
+          color: $primary-color;
+        }
+      }
+    }
+  }
+  .hamburger__container {
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    @include desktop {
+      display: none;
+    }
+    .hamburger {
+      background-color: $primary-color;
+      height: 4px;
+      width: 30px;
+      border-radius: 10%;
+      //   position: absolute;
+      right: 1rem;
+      transform: translateY(10px);
+      //   top: 50%;
+      @include transform;
+
+      &::before {
+        content: "";
+        background-color: $primary-color;
+        height: 4px;
+        width: 30px;
+        border-radius: 10%;
+        position: absolute;
+        top: -10px;
+      }
+      &::after {
+        content: "";
+        background-color: $primary-color;
+        height: 4px;
+        width: 30px;
+        border-radius: 10%;
+        position: absolute;
+        top: 10px;
+      }
+      &.open {
+        margin-top: 0.8rem;
+        opacity: 1;
+        transform: rotate(45deg);
+      }
+      &.open::before {
+        display: none;
+      }
+      &.open::after {
+        position: absolute;
+        transform: translateY(-10px);
+        transform: rotate(-90deg);
+        top: 0;
+      }
+    }
+  }
+}
