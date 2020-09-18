@@ -60,6 +60,7 @@ section {
     &__form {
       width: 100%;
       display: flex;
+      margin: 1rem auto;
       flex-direction: column;
       min-width: 300px;
       @include desktop {
@@ -154,5 +155,8 @@ section {
     overflow: scroll;
     margin: 1rem auto;
     border-radius: 8px;
+    & p {
+      margin-left: 3rem;
+    }
   }
 }

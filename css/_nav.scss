@@ -44,6 +44,7 @@ nav {
         text-decoration: none;
         color: $text-color;
         text-transform: uppercase;
+        @include all;
         &:hover {
           background-color: darken($primary-color, 2%);
           color: $secondary-color;

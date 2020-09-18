@@ -100,9 +100,6 @@ submitBtn.addEventListener("click", (e) => {
 
 resetBtn.addEventListener("click", (e) => {
   e.preventDefault();
-  start = 0;
-  num = 0;
-  interval = 1;
   display.innerHTML = "";
   checkBox.children[0].checked = false;
   store = [];
