@@ -13,6 +13,7 @@ const nav = () => {
         navToggle.children[0].classList.remove("open");
       });
     });
+    // Close navigation when an item is clicked
     section.addEventListener("click", () => {
       navLinks.classList.remove("open");
       navToggle.children[0].classList.remove("open");

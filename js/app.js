@@ -3,7 +3,6 @@ const submitBtn = document.querySelector(".submit");
 const initial = document.querySelector(".initial");
 const final = document.querySelector(".final");
 const gap = document.querySelector(".interval");
-const reverse = document.querySelector(".downwards");
 const checkBox = document.querySelector(".checkbox");
 const display = document.getElementsByClassName("results")[0];
 let sum = 0;
@@ -14,13 +13,14 @@ let num;
 let store = [];
 
 //
-// import logic from "./logic";
+// Navigation logic for mobile
 import nav from "./nav";
 
 nav();
-// setValue();
 
-// function setValue() {
+// Setting default values to on invalid input detection
+//Also updates the values of assigned variables after each input
+//
 final.addEventListener("change", (e) => {
   if (e.target.value <= 0 || e.target.value == isNaN) {
     e.target.value = 100;
@@ -45,11 +45,15 @@ gap.addEventListener("change", (e) => {
     interval = parseFloat(e.target.value);
   }
 });
+// end of default inputs
+//
+//Making the entire checkbox container clickable
 checkBox.addEventListener("click", () => {
   checkBox.children[0].checked = !checkBox.children[0].checked;
 });
-// }
-
+//
+//
+//Evenet triggered by main submit button: Summing up the numbers
 submitBtn.addEventListener("click", (e) => {
   e.preventDefault();
 
@@ -74,7 +78,6 @@ submitBtn.addEventListener("click", (e) => {
   };
   if (!checkBox.children[0].checked) {
     sumUp(num);
-    console.log(store);
     store.forEach((item) => {
       individual += `<p>${item}</p>`;
     });
@@ -98,8 +101,12 @@ submitBtn.addEventListener("click", (e) => {
   }
 });
 
+///logic for the secondary button----reset button
 resetBtn.addEventListener("click", (e) => {
   e.preventDefault();
+  start = 0;
+  num = 0;
+  interval = 1;
   display.innerHTML = "";
   checkBox.children[0].checked = false;
   store = [];
